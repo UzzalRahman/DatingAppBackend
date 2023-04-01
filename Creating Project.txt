@@ -17,6 +17,9 @@ dotnet new gitignore
 dotnet new globaljson
 appsetting.json add to gitignore (for safety if the repo is public)
 
+create angular project:
+ng new client
+
 
 
 
