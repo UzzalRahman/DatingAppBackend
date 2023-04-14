@@ -21,6 +21,11 @@ create angular project:
 ng new client
 
 
+Nuget:
+microsoft.aspnetcore.authentication.jwtbearer
+
+
+
 
 
 
