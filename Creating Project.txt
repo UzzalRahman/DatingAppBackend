@@ -23,8 +23,30 @@ ng new client
 
 Nuget:
 microsoft.aspnetcore.authentication.jwtbearer
+AutoMapper.Extensions.Microsoft.DependencyInjection
 
+Tips and Syntex for backend:
 
+*To Read all data from a file and store in a variable:
+    var userData = await File.ReadAllTextAsync("Data/UserSeedData.json");
+* Convert Json to C# object:
+    var users = JsonSerializer.Deserialize<List<AppUser>>(userData);
+*To add a user
+    context.Users.Add(user);
+* To save changes in Database:
+    await context.SaveChangesAsync();
+*All Task should be an async method.
+
+* To get related data (Eager loading entity)
+    return await _context.Users
+            .Include(p => p.Photos)
+            .SingleOrDefaultAsync(x=> x.UserName == username);
+
+* automapper example
+    return await _context.Users
+            .Where(user => user.UserName == username)
+            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync();
 
 
 
